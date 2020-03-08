@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  
+  <style>
+	  body, html {
+	    height: 100%;
+		margin: 0;
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+	  }
+
+	  .bg {
+		background-image: linear-gradient(to bottom right, #87bcff, #2887ff);<!--#63ee97, #11bf52-->
+		height: 100%; 
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	  }
+	  
+	@media (min-width: 768px) {
+
+    /* show 3 items */
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+        transition: none;
+    }
+
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+      position: relative;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -33.3333%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+
+	}
+	
+	@media (min-width: 576px) {
+		.ll{
+			border-right: solid 1px #aaa; 
+		}
+	
+		.rr{
+			border-left: solid 1px #aaa;
+		}
+		
+		.hrr{
+			display: none;
+		}
+		
+		.spc{
+		    height: 78px;
+		}
+	}
+	
+	@media (max-width: 576px) {
+		.hrr{
+			border-bottom: solid 2px #aaa;
+		}
+		.sm-lbl{
+			display: none !important;
+		}
+		
+		.spc{
+		    height: 118px;
+		}
+	}
+	
+	.nv :hover, .nv :focus{
+		color: #455668;
+		border-bottom: 3px solid #000;
+	}	
+  </style>	  
+	  
+</head>
+
+<body>
+  
+
+  <!--<div class="spc sp"></div>-->
+  <br><br>
+  
+  
+  <div style="background: #eee;" id="fft">
+    <div class="row no-gutters">
+	  <div class="col-12 col-sm-6 my-5 py-2 ll" style="text-align: center">
+	    <span class="text-center"><i class="material-icons" style="font-size: 75px; color: #666;">forum</i></span>
+		<br>
+		<h2 style="color: #666;">Contact Us</h2>
+		<br>
+		<p class="text-center" style="color:#444;">Have any Questions? Feel free to contact our Tech Support</p>
+		<br>
+		<button type="submit" class="btn btn-outline-dark ml-sm-2 mb-2" style="border-radius: 50px" data-toggle="modal" data-target="#contact">&emsp;&emsp;Contact Support&emsp;&emsp;</button>
+	  </div>
+	  <div class="container hrr" style="width: 85%; height: 5px;"></div>
+	  <div class="col-12 col-sm-6 my-5 py-2 rr" style="text-align: center">
+	    <span class="text-center"><i class="material-icons" style="font-size: 75px; color: #666;">help_outline</i></span>
+		<br>
+		<h2 class="scrollspy" style="color: #666;">FAQs</h2>
+		<br>
+		<p class="text-center" style="color:#444;">Check out the help center for Frequently Asked Questions</p>
+		<br>
+		<button type="submit" class="btn btn-outline-dark ml-sm-2 mb-2" style="border-radius: 50px" data-toggle="modal" data-target="#faq">&emsp;&emsp;&emsp;&emsp;Go Now&emsp;&emsp;&emsp;&emsp;</button>
+	  </div>
+	</div>
+  </div>
+  
+  <!--Contact Modal-->
+  <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-light" id="exampleModalLabel">Any Problems?</h5>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form  my-3 mr-2 ml-2">
+		  <div class="form-row"> 
+			<div class="form-group col-sm">
+			  <label for="exampleInputEmail1" style="color: #fff;">Enter Name</label>
+			  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First">
+			</div>
+			<div class="form-group col-sm">
+			  <label class="sm-lbl" for="exampleInputEmail1" style="color:rgba(0, 0, 0, 0); visibility: hidden;">Enter Name</label>
+			  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputEmail1" style="color: #fff;">Enter Email</label>
+			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleFormControlTextarea1" style="color: #fff;">Your Query or Question</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+			<button type="button" class="btn btn-outline-light ml-sm-2" style="border-radius: 50px" style="width:100%;" data-dismiss="modal" aria-label="Close">Submit</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <!--FAQ Modal-->
+  <div class="modal fade" id="faq" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-light" id="exampleModalLabel">FAQs</h5>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	    <p class="text-white">Q. What is the time limit to complete the website?<br>Ans. You'll be given a maximum of 12 hours</p><br>
+		<p class="text-white">Q. Are we allowed to use bootstrap or materialize?<br>Ans. You're not allowed to use any extertnal styleheets</p><br>
+		<p class="text-white">Q. What is the time limit to complete the website?<br>Ans. You'll be given a maximum of 12 hours</p><br>
+		<p class="text-white">Q. Are we allowed to use bootstrap or materialize?<br>Ans. You're not allowed to use any extertnal styleheets</p><br>
+		<p class="text-white">Q. What is the time limit to complete the website?<br>Ans. You'll be given a maximum of 12 hours</p><br>
+		<p class="text-white">Q. Are we allowed to use bootstrap or materialize?<br>Ans. You're not allowed to use any extertnal styleheets</p><br>
+      </div>
+      <div class="modal-footer">
+			<button type="button" class="btn btn-outline-light ml-sm-2" style="border-radius: 50px" style="width:100%;" data-dismiss="modal" aria-label="Close">Close</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="pl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-light" id="exampleModalLabel">Problem Logging In?</h5>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 class="text-light">Contact our Tech Support!</h2>
+	  </div>
+	  <div class="modal-footer">
+			<button type="button" class="btn btn-outline-light ml-sm-2" style="border-radius: 50px" style="width:100%;" data-dismiss="modal" aria-label="close">Close</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+ <!-- Footer -->
+<footer class="page-footer font-small pt-4" id="cnt" style="background-color: #455668;">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Footer links -->
+      <div class="row text-center text-md-left mt-3 pb-3 align-items-center">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold text-white">Important Links</h6>
+          <!--<p class="text-white">
+            <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>-->
+          <p class="text-white">
+             <a href="#acnt" style="text-decoration: none;" class="text-white">Login</a></p>
+          <p class="text-white">
+             <a href="#abt" style="text-decoration: none;" class="text-white">Our Events</a></p>
+        </div>
+        <!-- Grid column -->
+           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold text-white">WebTags Coordinators</h6>
+          <p class="text-white">
+            <i class="fa fa-home mr-3"></i> VIT, VELLORE, 632014, INDIA</p>
+          <p class="text-white">
+            <i class="fa fa-mail mr-3"></i> oinksharma@gmail.com</p>
+          <p class="text-white">
+            <i class="fa fa-phone mr-3"></i> 9080018645</p>
+        </div>
+      </div>
+      <!-- Footer links -->
+
+      <hr>
+
+      <!-- Grid row -->
+      <div class="row d-flex align-items-center">
+
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8">
+
+          <!--Copyright-->
+          <p class="text-center text-md-left text-white">© 2018 Copyright:
+            <a class="text-white">
+              <strong>Indian Society for Technical Education</strong>
+            </a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0">
+
+          <!-- Social buttons -->
+          <div class="text-center text-md-right">
+            <ul class="list-unstyled list-inline">
+              <li class="list-inline-item">
+                
+                  <i class="fab fa-facebook fa-lg" style="color: #3B5998; background:#fff; width: 80%;"></i>
+                </a>
+              </li>
+              <li class="list-inline-item" >
+                
+                  <i class="fab fa-instagram fa-lg text-center" style="color: #fff; background: linear-gradient(60deg, #ffdc7d, #f46f30, #c32aa3, #7232bd);"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                
+                  <i class="fab fa-linkedin fa-lg" style="color: #0077B5; background:#fff; width: 80%;"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+  </footer>
+  <!-- Footer -->
+
+ 
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.js"></script>
+  
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+  
+  <script>
+    $('#carouselExample').on('slide.bs.carousel', function (e) {
+
+    /*
+
+    CC 2.0 License Iatek LLC 2018
+    Attribution required
+    
+    */
+
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $('.carousel-item').length;
+    
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+    });
+  </script>
+   
+  
+  
+  
+</body>
+
+</html>
